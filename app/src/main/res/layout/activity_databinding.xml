@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <import type="android.widget.CompoundButton"/>
+        <variable
+            name="car_model"
+            type="com.vlad.databindingtest.models.Car"/>
+        <variable
+            name="handler"
+            type="com.vlad.databindingtest.handlers.CarScreenHandler"/>
+    </data>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        tools:context=".DataBindingActivity">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="fill_parent"
+            android:layout_weight="1"
+            android:orientation="vertical"
+            tools:context=".DataBindingActivity">
+
+
+            <TextView
+                android:id="@+id/txt_id"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingStart="20dp"
+                android:textSize="25sp"
+                android:text='@{`id: ` + String.valueOf(car_model.id), default= `id`}' />
+            <TextView
+                android:id="@+id/txt_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingStart="20dp"
+                android:textSize="25sp"
+                android:text="@{`model: `+ car_model.name, default=`Detault name`}" />
+            <TextView
+                android:id="@+id/txt_price"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingStart="20dp"
+                android:textSize="25sp"
+                android:text="@{`price: `+ car_model.price, default=0}" />
+            <TextView
+                android:id="@+id/txt_mileage"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingStart="20dp"
+                android:textSize="25sp"
+                android:text="@{`mileage: ` + car_model.mileage, default=0}" />
+
+
+        </LinearLayout>
+
+
+
+
+        <LinearLayout
+            android:layout_height="100dp"
+            android:layout_width="match_parent"
+            android:orientation="vertical">
+
+            <CheckBox
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:text="show win"
+                android:onClick="@{(view)-> handler.onShowWin(((CompoundButton) view).isChecked(), car_model)}">
+
+            </CheckBox>
+
+            <LinearLayout
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="60dp">
+
+                <!--            Button calls the onClick method that has the-->
+                <!--            same signature that the onClick method from OnClickListener class-->
+
+                <Button
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:text="@string/btn_random_txt"
+                    android:onClick="@{handler::onRandomPressed}">
+                </Button>
+
+                <!--            Call handler method onFindPressed() with lambda-->
+                <Button
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:text="@string/btn_find"
+                    android:onClick="@{(view)->handler.onFindPressed(car_model)}">
+                </Button>
+
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+
+
+
+
+    </LinearLayout>
+
+
+
+
+
+</layout>
+
