@@ -8,24 +8,24 @@
         <import type="android.widget.CompoundButton"/>
         <variable
             name="car_model"
-            type="com.vlad.databindingtest.models.Car"/>
+            type="com.vlad.databindingtest.databinding.models.Car"/>
         <variable
             name="handler"
-            type="com.vlad.databindingtest.handlers.CarScreenHandler"/>
+            type="com.vlad.databindingtest.databinding.CarScreenHandler"/>
     </data>
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical"
-        tools:context=".DataBindingActivity">
+        tools:context=".databinding.DataBindingActivity">
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="fill_parent"
             android:layout_weight="1"
             android:orientation="vertical"
-            tools:context=".DataBindingActivity">
+            tools:context=".databinding.DataBindingActivity">
 
 
             <TextView

@@ -1,7 +1,7 @@
-package com.vlad.databindingtest.handlers
+package com.vlad.databindingtest.databinding
 
 import android.view.View
-import com.vlad.databindingtest.models.Car
+import com.vlad.databindingtest.databinding.models.Car
 
 interface CarScreenHandler {
 

@@ -6,19 +6,16 @@
     <data>
         <variable
             name="screenModel"
-            type="com.vlad.databindingtest.models.VMScreenModel"/>
+            type="com.vlad.databindingtest.viewmodel.models.VMScreenModel"/>
         <variable
             name="handler"
-            type="com.vlad.databindingtest.handlers.VMScreenHandler"/>
+            type="com.vlad.databindingtest.viewmodel.VMScreenHandler"/>
     </data>
 
 <androidx.constraintlayout.widget.ConstraintLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ViewModelActivity">
+    tools:context=".viewmodel.ViewModelActivity">
 
     <EditText
         android:id="@+id/txt_input"
@@ -43,8 +40,7 @@
         app:layout_constraintEnd_toStartOf="@+id/btn_restore"
         app:layout_constraintHorizontal_bias="0.094"
         app:layout_constraintStart_toStartOf="parent"
-        android:onClick="@{()-> handler.onSavePressed(screenModel.savedText)}"
-        />
+        android:onClick="@{()-> handler.onSavePressed()}" />
 
     <Button
         android:id="@+id/btn_restore"

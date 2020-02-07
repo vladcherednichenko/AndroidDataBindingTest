@@ -1,4 +1,4 @@
-package com.vlad.databindingtest
+package com.vlad.databindingtest.databinding
 
 import android.content.Context
 import androidx.appcompat.app.AppCompatActivity
@@ -7,9 +7,8 @@ import android.util.Log
 import android.view.View
 import android.widget.Toast
 import androidx.databinding.DataBindingUtil
-import com.vlad.databindingtest.databinding.ActivityDatabindingBinding
-import com.vlad.databindingtest.handlers.CarScreenHandler
-import com.vlad.databindingtest.models.Car
+import com.vlad.databindingtest.R
+import com.vlad.databindingtest.databinding.models.Car
 
 import kotlin.random.Random
 
@@ -27,7 +26,9 @@ class DataBindingActivity : AppCompatActivity(),
 
     )
 
-    private val carScreenBinding : ActivityDatabindingBinding by lazy{DataBindingUtil.setContentView<ActivityDatabindingBinding>(this, R.layout.activity_databinding)}
+    private val carScreenBinding : ActivityDatabindingBinding by lazy{DataBindingUtil.setContentView<ActivityDatabindingBinding>(this,
+        R.layout.activity_databinding
+    )}
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

@@ -9,6 +9,7 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
+        <activity android:name=".navigation.NavigationActivity"></activity>
         <activity android:name=".StartActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -16,8 +17,8 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".ViewModelActivity" />
-        <activity android:name=".DataBindingActivity" />
+        <activity android:name=".viewmodel.ViewModelActivity" />
+        <activity android:name=".databinding.DataBindingActivity" />
     </application>
 
 </manifest>

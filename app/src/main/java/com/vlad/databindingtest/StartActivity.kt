@@ -4,29 +4,43 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Button
+import androidx.databinding.DataBindingUtil
+import com.vlad.databindingtest.databinding.ActivityStartBinding
+import com.vlad.databindingtest.databinding.DataBindingActivity
+import com.vlad.databindingtest.navigation.NavigationActivity
+import com.vlad.databindingtest.viewmodel.ViewModelActivity
 
-class StartActivity : AppCompatActivity() {
+class StartActivity : AppCompatActivity(), StartActivityHandler{
+
+    lateinit var binding: ActivityStartBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_start)
 
-        findViewById<Button>(R.id.btn_start_databinding).setOnClickListener{startDataBindingActivity()}
-        findViewById<Button>(R.id.btn_start_viewmodel).setOnClickListener{startViewModelActivity()}
+        binding = DataBindingUtil.setContentView(this, R.layout.activity_start)
+
+        binding.handler = this
 
     }
 
+    override fun onNavigationPressed() {
 
-    fun startDataBindingActivity(){
-
-        val intent = Intent(this, DataBindingActivity::class.java)
+        val intent = Intent(this, NavigationActivity::class.java)
         startActivity(intent)
 
     }
 
-    fun startViewModelActivity(){
+    override fun onViewModelPressed() {
 
         val intent = Intent(this, ViewModelActivity::class.java)
+        startActivity(intent)
+
+    }
+
+    override fun onDatabindingPressed() {
+
+        val intent = Intent(this, DataBindingActivity::class.java)
         startActivity(intent)
 
     }
